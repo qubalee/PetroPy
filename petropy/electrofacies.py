@@ -116,7 +116,7 @@ def electrofacies(logs, formations, curves, n_clusters, log_scale = [],
     components = pd.DataFrame(data = pc.transform(X),
                               index = df[not_null_rows].index)
 
-    minibatch_input = components.as_matrix()
+    minibatch_input = components.to_numby()
 
     components.columns = \
                    ['PC%i' % x for x in range(1, pc.n_components_ + 1)]
